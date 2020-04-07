@@ -7,37 +7,7 @@ API микросервиса Product Catalog по книге "Хорсдал. М
 
 ## Questions Collection [/questions]
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
 ### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
 
 + Request (application/json)
 
@@ -78,3 +48,35 @@ form of choices.
                     }
                 ]
             }
+            
+## Product List [/products?productIds=1,2]
+
+### Product List GET [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+            "productId": "1",
+            "productName": "Basic t-shirt",
+            "productDescription": "a quiet t-shirt",
+            "price": { "amount" : 40, "currency": "eur" },
+            "attributes" : [
+                {
+                "sizes": [ "s", "m", "l"],
+                "colors": ["red", "blue", "green"]
+                }]
+            },
+            {
+                "productId": "2",
+                "productName": "Fancy shirt",
+                "productDescription": "a loud t-shirt",
+                "price": { "amount" : 50, "currency": "eur" },
+                "attributes" : [
+                {
+                Глава 2 • Простой микросервис для корзины заказов 69
+                "sizes": [ "s", "m", "l", "xl"],
+                "colors": ["ALL", "Batique"]
+                }]
+            }
+        ]
